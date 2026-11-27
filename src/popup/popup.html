@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="bar brand">
+    <img src="../../icons/icon.svg" alt="" width="24" height="24">
+    <h1 data-i18n="popup_title"></h1>
+    <span class="spacer"></span>
+    <button id="rescan" class="icon ghost" data-i18n-title="btn_rescan" data-i18n-aria-label="btn_rescan">⟳</button>
+    <button id="clear" class="icon ghost" data-i18n-title="btn_clear" data-i18n-aria-label="btn_clear">🗑</button>
+    <button id="openManager" class="ghost" data-i18n="btn_downloads"></button>
+  </header>
+
+  <div class="filter">
+    <label for="minSize" class="muted small" data-i18n="size_label"></label>
+    <select id="minSize"></select>
+  </div>
+
+  <div id="perm" class="banner warn" hidden>
+    <span data-i18n="perm_banner"></span>
+    <button id="grant" data-i18n="btn_grant"></button>
+  </div>
+  <div id="blocked" class="banner info" hidden data-i18n="blocked_banner"></div>
+  <div id="drm" class="banner danger" hidden></div>
+  <div id="special" class="banner info" hidden></div>
+
+  <main id="list"></main>
+
+  <section id="mse" class="card mse" hidden>
+    <div class="row">
+      <strong data-i18n="mse_title"></strong>
+      <span id="mseInfo" class="muted"></span>
+    </div>
+    <p class="muted small" id="mseHelp"></p>
+    <div class="actions" id="mseActions"></div>
+  </section>
+
+  <footer>
+    <button id="showHidden" class="link" hidden></button>
+    <span id="toast" role="status"></span>
+  </footer>
+
+  <script src="../lib/compat.js"></script>
+  <script src="../lib/formats.js"></script>
+  <script src="../lib/util.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

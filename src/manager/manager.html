@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>__manager_title</title>
+  <link rel="icon" href="../../icons/icon.svg">
+  <link rel="stylesheet" href="../ui/common.css">
+  <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+  <header class="bar brand">
+    <img src="../../icons/icon.svg" alt="" width="30" height="30">
+    <h1><span data-i18n="appName"></span> · <span data-i18n="btn_downloads"></span></h1>
+    <span class="spacer"></span>
+    <button id="clearDone" class="ghost" data-i18n="btn_clearDone"></button>
+  </header>
+
+  <main>
+    <p class="note" data-i18n="manager_note"></p>
+    <section id="jobs" aria-live="polite"></section>
+    <p id="empty" class="muted" data-i18n="manager_empty"></p>
+
+    <details class="settings" open>
+      <summary data-i18n="settings_title"></summary>
+      <form id="settings">
+        <label><span data-i18n="set_maxJobs"></span>
+          <input type="number" name="maxJobs" min="1" max="20">
+        </label>
+        <label><span data-i18n="set_minSize"></span>
+          <input type="number" name="minSizeMB" min="0" step="0.1">
+        </label>
+        <label><span data-i18n="set_concurrency"></span>
+          <input type="number" name="concurrency" min="1" max="16">
+        </label>
+        <label class="check"><input type="checkbox" name="convert"> <span data-i18n="set_convert"></span></label>
+        <p class="muted" id="savedMsg" hidden data-i18n="saved"></p>
+      </form>
+    </details>
+  </main>
+
+  <template id="jobTpl">
+    <article class="job">
+      <div class="job-head">
+        <strong class="job-title"></strong>
+        <span class="job-time muted"></span>
+        <span class="job-kind tag"></span>
+      </div>
+      <div class="job-status"></div>
+      <progress max="1" value="0"></progress>
+      <div class="job-actions">
+        <button class="cancel ghost" data-i18n="btn_cancel"></button>
+        <button class="show ghost" hidden data-i18n="btn_showFile"></button>
+        <button class="retry ghost" hidden data-i18n="btn_retry"></button>
+      </div>
+      <pre class="job-log" hidden></pre>
+    </article>
+  </template>
+
+  <script src="../lib/compat.js"></script>
+  <script src="../lib/util.js"></script>
+  <script src="manager.js"></script>
+</body>
+</html>

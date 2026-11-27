@@ -1,0 +1,4 @@
+dist/
+*.xpi
+*.crx
+*.pem
